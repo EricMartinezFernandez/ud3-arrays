@@ -201,31 +201,44 @@ public class Main {
             controlador++;
             System.out.println("------------------------\n" + "----TRES EN RAYA----" + "\n------------------------");
 
+
             do {
+                do {
 
-                if (resto == 0) {
-                    System.out.print("Jugador 1: \n");
-                    turno = true;
-                    jugador = 1;
+                    if (resto == 0) {
+                        System.out.print("Jugador 1: \n");
+                        turno = true;
+                        jugador = 1;
 
-                } else {
-                    System.out.print("Jugador 2: \n");
-                    turno = false;
-                    jugador = 2;
-                }
+                    } else {
+                        System.out.print("Jugador 2: \n");
+                        turno = false;
+                        jugador = 2;
+                    }
 
 
-                System.out.println("Turno: " + controlador + "\n");
-                visualizarTablero(tablero);
-                System.out.print("\n------------------------\n" + "Fila: ");
-                fila = Integer.parseInt(br.readLine());
-                System.out.print("Columna: ");
-                columna = Integer.parseInt(br.readLine());
-                if (fila > 3 && columna > 3) {
-                    System.out.print("-------------------\nLa casilla elejida no existe\n-------------------\n");
-                }
-            } while (fila > 3 && columna > 3);
-            System.out.println("ME EJECUTO");
+                    System.out.println("Turno: " + controlador + "\n");
+                    visualizarTablero(tablero);
+                    System.out.print("\n------------------------\n" + "Fila: ");
+                    fila = Integer.parseInt(br.readLine());
+                    System.out.print("Columna: ");
+                    columna = Integer.parseInt(br.readLine());
+
+                    if (tablero[fila][columna] != 'N') {
+                        System.out.print("-------------------\nLa casilla elejida ya está en uso\n-------------------\n");
+                    }
+
+                    if (fila > 3 && columna > 3) {
+                        System.out.print("-------------------\nLa casilla elejida no existe\n-------------------\n");
+                    }
+                } while (fila > 3 && columna > 3);
+
+            }while(tablero[fila][columna] != 'N');
+
+
+
+
+
             System.out.println("\n\n");
 
             fila--;
